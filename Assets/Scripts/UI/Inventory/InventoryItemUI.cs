@@ -1,8 +1,9 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItemUI : MonoBehaviour
+public class InventoryItemUI : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] private Image    icon;
     [SerializeField] private TMP_Text quantityText;
@@ -25,6 +26,11 @@ public class InventoryItemUI : MonoBehaviour
     
     /// <summary>If player click on a block. We will notify the inventory UI to select that block.</summary>
     public void OnClick()
+    {
+        // _inventoryUI.OnPlayerClickItem(_itemId);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
     {
         _inventoryUI.OnPlayerClickItem(_itemId);
     }

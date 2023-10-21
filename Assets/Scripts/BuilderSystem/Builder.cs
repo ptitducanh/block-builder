@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Data;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace BuilderSystem
 {
@@ -110,7 +111,7 @@ namespace BuilderSystem
         /// </summary>
         private void PlaceTheBlock()
         {
-            if (Input.GetMouseButtonDown(0) && _currenBlock != null)
+            if (Input.GetMouseButtonUp(0) && _currenBlock != null)
             {
                 OnPlayerPlacedBlock?.Invoke(_currenBlock);
                 World.AddBlock(_currenBlock);
